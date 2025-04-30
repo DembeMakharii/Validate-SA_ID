@@ -3,12 +3,13 @@
  */
 package org.example;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    @Test
+    void testValidIdNumbers() {
+        assertTrue(ValidateSAid.isValid("2001014800086"));
+        assertTrue(ValidateSAid.isValid("2909035800085"));
     }
 }
