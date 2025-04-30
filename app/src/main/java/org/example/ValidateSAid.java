@@ -22,7 +22,7 @@ public static boolean isValid(String idNumber) {
         return false;
     }
 //  Algorithm validation
-return isValid(idNumber);
+return isValidLuh(idNumber);
 }
 
 
@@ -34,5 +34,16 @@ private static boolean isValidDate(String dateStr) {
     } catch (DateTimeParseException e) {
         return false;
     } 
+}
+private static boolean isValidLuh(String idNumber) {
+    int sum = 0;
+    for (int i = 0; i < 12; i++) {
+        int digit = Character.getNumericValue(idNumber.charAt(i));
+        int weight = (i % 2 == 0) ? 1 : 2;
+        int product = digit * weight;
+        sum += (product > 9) ? product - 9 : product;
+    }
+    int checkDigit = Character.getNumericValue(idNumber.charAt(12));
+    return (10 - (sum % 10)) % 10 == checkDigit;
 }
 }
