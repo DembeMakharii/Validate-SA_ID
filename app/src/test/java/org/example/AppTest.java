@@ -22,4 +22,9 @@ class AppTest {
         assertFalse(ValidateSAid.isValid("123"));
         assertFalse(ValidateSAid.isValid("2001014800086123"));
     }
+    @Test
+    void testNonNumeric() {
+        assertFalse(ValidateSAid.isValid("20010A4800086"));
+        assertFalse(ValidateSAid.isValid("abcdefghijklm"));
+    }
 }
