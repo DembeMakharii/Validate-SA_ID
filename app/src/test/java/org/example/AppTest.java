@@ -39,4 +39,10 @@ class AppTest {
         assertFalse(ValidateSAid.isValid("9902304800083")); // Invalid day
         assertFalse(ValidateSAid.isValid("9913024800081")); // Invalid month
     }
+    @Test
+    void testCitizenshipDigit() {
+        assertTrue(ValidateSAid.isValid("9202204800086"));  // Citizen (0)
+        assertTrue(ValidateSAid.isValid("9202204800183"));  // Resident (1)
+        assertFalse(ValidateSAid.isValid("9202204800280")); // Invalid (2)
+    }
 }
