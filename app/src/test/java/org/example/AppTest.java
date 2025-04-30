@@ -3,6 +3,7 @@
  */
 package org.example;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.jupiter.api.Test;
 
 class AppTest {
@@ -16,5 +17,9 @@ class AppTest {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'assertTrue'");
     }
-
+@Test
+    void testInvalidLength() {
+        assertFalse(ValidateSAid.isValid("123"));
+        assertFalse(ValidateSAid.isValid("2001014800086123"));
+    }
 }
