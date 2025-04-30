@@ -4,13 +4,4 @@
 package org.example;
 
 import java.time.LocalDate;
-
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
-    }
-}
+import java.time.format.DateTimeFormatter;
