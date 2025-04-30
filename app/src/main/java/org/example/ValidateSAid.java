@@ -6,7 +6,13 @@ package org.example;
 public class ValidateSAid {
 public static boolean  isValid(String idnumber) {
     //basic validation
-    
-    
-}
+    if (idNumber == null || idNumber.length() != 13 || !idNumber.matches("\\d+")) {
+        return false;
+    }
+    // Date validation (YYMMDD)
+    if (!isValidDate(idNumber.substring(0, 6))) {
+        return false;
+    }
+
+ }
 }
