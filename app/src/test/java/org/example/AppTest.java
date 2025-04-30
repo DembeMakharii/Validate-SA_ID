@@ -27,4 +27,9 @@ class AppTest {
         assertFalse(ValidateSAid.isValid("20010A4800086"));
         assertFalse(ValidateSAid.isValid("abcdefghijklm"));
     }
+    @Test
+    void testLuhnAlgorithm() {
+        assertTrue(ValidateSaid.isValid("2001014800086"));  // Valid
+        assertFalse(ValidateSaid.isValid("2001014800087")); // Invalid
+    }
 }
