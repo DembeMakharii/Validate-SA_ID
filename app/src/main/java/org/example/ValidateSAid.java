@@ -3,8 +3,11 @@
  */
 package org.example;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 public class ValidateSAid {
-public static boolean  isValid(String idnumber) {
+public static boolean isValid(String idNumber) {
     //basic validation
     if (idNumber == null || idNumber.length() != 13 || !idNumber.matches("\\d+")) {
         return false;
@@ -13,6 +16,23 @@ public static boolean  isValid(String idnumber) {
     if (!isValidDate(idNumber.substring(0, 6))) {
         return false;
     }
+    // Citizenship validation (digit 10)
+    int citizenshipDigit = Character.getNumericValue(idNumber.charAt(10));
+    if (citizenshipDigit != 0 && citizenshipDigit != 1) {
+        return false;
+    }
+//  Algorithm validation
+return isValid(idNumber);
+}
 
- }
+
+private static boolean isValidDate(String dateStr) {
+    try {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyMMdd");
+        LocalDate.parse(dateStr, formatter);
+        return true;
+    } catch (DateTimeParseException e) {
+        return false;
+    } 
+}
 }
