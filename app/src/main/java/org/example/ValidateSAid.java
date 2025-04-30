@@ -46,4 +46,9 @@ private static boolean isValidLuh(String idNumber) {
     int checkDigit = Character.getNumericValue(idNumber.charAt(12));
     return (10 - (sum % 10)) % 10 == checkDigit;
 }
+public static String getGender(String idNumber) {
+    if (!isValid(idNumber)) return "Invalid ID";
+    int genderDigit = Character.getNumericValue(idNumber.charAt(6));
+    return (genderDigit < 5) ? "Female" : "Male";
+}
 }
