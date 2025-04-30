@@ -51,4 +51,15 @@ public static String getGender(String idNumber) {
     int genderDigit = Character.getNumericValue(idNumber.charAt(6));
     return (genderDigit < 5) ? "Female" : "Male";
 }
+public static String getBirthDate(String idNumber) {
+    if (!isValid(idNumber)) return "Invalid ID";
+    try {
+        String dateStr = idNumber.substring(0, 6);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyMMdd");
+        LocalDate birthDate = LocalDate.parse(dateStr, formatter);
+        return birthDate.format(DateTimeFormatter.ISO_LOCAL_DATE);
+    } catch (DateTimeParseException e) {
+        return "Invalid date in ID";
+    }
+}
 }
