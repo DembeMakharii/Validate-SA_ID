@@ -3,6 +3,10 @@
  */
 package org.example;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+public class ValidateSAid {
+public static boolean  isValid(String idnumber) {
+    //basic validation
+    
+    
+}
+}
