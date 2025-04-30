@@ -29,7 +29,14 @@ class AppTest {
     }
     @Test
     void testLuhnAlgorithm() {
-        assertTrue(ValidateSaid.isValid("2001014800086"));  // Valid
-        assertFalse(ValidateSaid.isValid("2001014800087")); // Invalid
+        assertTrue(ValidateSAid.isValid("2001014800086"));  // Valid
+        assertFalse(ValidateSAid.isValid("2001014800087")); // Invalid
+    }
+    @Test
+    void testDateValidation() {
+        assertTrue(ValidateSAid.isValid("9202204800086"));  // Valid date
+        assertTrue(ValidateSAid.isValid("0002294800082"));  // Leap year
+        assertFalse(ValidateSAid.isValid("9902304800083")); // Invalid day
+        assertFalse(ValidateSAid.isValid("9913024800081")); // Invalid month
     }
 }
